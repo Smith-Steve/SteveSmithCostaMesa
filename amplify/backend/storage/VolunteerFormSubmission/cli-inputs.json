@@ -1,0 +1,10 @@
+{
+  "resourceName": "VolunteerFormSubmission",
+  "tableName": "VolunteerFormSubmission",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

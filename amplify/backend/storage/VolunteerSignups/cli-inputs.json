@@ -1,0 +1,10 @@
+{
+  "resourceName": "VolunteerSignups",
+  "tableName": "VolunteerSignups",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

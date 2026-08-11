@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "storage": {
+      "VolunteerSignups": [
+        "create",
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

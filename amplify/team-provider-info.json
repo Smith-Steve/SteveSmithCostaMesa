@@ -1,0 +1,41 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-stevesmithcostamesa-dev-c01c9-authRole",
+      "UnauthRoleArn": "arn:aws:iam::531698586584:role/amplify-stevesmithcostamesa-dev-c01c9-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::531698586584:role/amplify-stevesmithcostamesa-dev-c01c9-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-stevesmithcostamesa-dev-c01c9-deployment",
+      "UnauthRoleName": "amplify-stevesmithcostamesa-dev-c01c9-unauthRole",
+      "StackName": "amplify-stevesmithcostamesa-dev-c01c9",
+      "StackId": "arn:aws:cloudformation:us-west-2:531698586584:stack/amplify-stevesmithcostamesa-dev-c01c9/ab07ea40-8324-11f1-a0b4-0247fb03c615",
+      "AmplifyAppId": "d1gi05jng85z7w"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d1gi05jng85z7w",
+          "type": "manual"
+        }
+      },
+      "function": {
+        "submitVolunteerForm": {
+          "deploymentBucketName": "amplify-stevesmithcostamesa-dev-c01c9-deployment",
+          "s3Key": "amplify-builds/submitVolunteerForm-34595133714e72544366-build.zip"
+        },
+        "submitVolunteerFormV2": {
+          "deploymentBucketName": "amplify-stevesmithcostamesa-dev-c01c9-deployment",
+          "s3Key": "amplify-builds/submitVolunteerFormV2-7553582b363478493847-build.zip"
+        }
+      },
+      "storage": {
+        "VolunteerSignups": {},
+        "VolunteerFormSubmission": {}
+      },
+      "api": {
+        "volunteerApi": {},
+        "volunteerFormApi": {}
+      }
+    }
+  }
+}

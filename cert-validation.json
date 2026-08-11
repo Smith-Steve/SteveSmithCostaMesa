@@ -1,0 +1,17 @@
+{
+  "Changes": [
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "_c6a5d519799742b97a35b2d89bf24fdb.steveforcostamesa.com.",
+        "Type": "CNAME",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "_2b3e0801be60632ba19d2457c2a80fb1.jkddzztszm.acm-validations.aws."
+          }
+        ]
+      }
+    }
+  ]
+}
