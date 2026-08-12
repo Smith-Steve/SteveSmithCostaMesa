@@ -14,8 +14,8 @@ class Hero extends Component {
               </h1>
               <p className="lede">
                 We live in a coastal paradise here in Costa Mesa, a prosperous and
-                highly desirable area of our nation; yet our city is not living up
-                to its potential. Costa Mesa is a hidden gem;
+                highly desirable area of our nation. Yet our city is not living up
+                to its potential. Costa Mesa is a hidden gem.
                 Steve loves Costa Mesa and appreciates its vibrant, eclectic character. 
                 Our city has lost its way and Steve wants to steer our city towards focusing on the
                 basics: Public safety, responsible stewardship of our resources, and a hyper-focus on
