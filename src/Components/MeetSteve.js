@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class MeetSteve extends Component {
   constructor(props) {
@@ -12,14 +13,6 @@ class MeetSteve extends Component {
     this.state = {
       selectedImage: this.images[Math.floor(Math.random() * this.images.length)],
     };
-
-    this.handleLearnMoreClick = this.handleLearnMoreClick.bind(this);
-  }
-
-  handleLearnMoreClick() {
-    if (this.props.onNavigate) {
-      this.props.onNavigate('about');
-    }
   }
 
   render() {
@@ -41,7 +34,7 @@ class MeetSteve extends Component {
                 believe openness and transparency are the keys to good governance, and when I'm
                 elected your voice will be heard. I will work to make sure that your city government is open, transparent, and accountable to you, the residents of Costa Mesa.
             </p>
-            <button className="btn-learn-more" onClick={this.handleLearnMoreClick}>More</button>
+            <Link className="btn-learn-more" to="/about">More</Link>
             </div>
         </div>
       </section>

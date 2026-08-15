@@ -8,7 +8,7 @@ class District extends React.Component {
         <div className="district-container">
           <div className="district-header">
             <div className="district-eyebrow">&mdash; Know Your District</div>
-            <h2>District 5</h2>
+            <h1>District 5</h1>
             <p className="district-sub">
               Steve is running to represent Costa Mesa's District 5 on City Council.
               Use the map below to see if you're in District 5.

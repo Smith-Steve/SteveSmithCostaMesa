@@ -7,7 +7,7 @@ class Issues extends Component {
         <div className="issues-bottom">
           <div className="issues-header">
             <div className="issues-eyebrow">&mdash; Where Steve Stands</div>
-            <h2>Five Commitments for District 5</h2>
+            <h1>Five Commitments for District 5</h1>
             <p className="issues-sub">
               Five commitments for District 5.
             </p>

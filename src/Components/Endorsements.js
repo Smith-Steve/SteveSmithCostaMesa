@@ -28,9 +28,9 @@ class Endorsements extends React.Component {
         aria-labelledby="endorsements-heading"
       >
         <div className="endorsements-container">
-          <h2 id="endorsements-heading" className="endorsements-heading">
+          <h1 id="endorsements-heading" className="endorsements-heading">
             Endorsements
-          </h2>
+          </h1>
           <p className="endorsements-subheading">
             Steve is proud to be endorsed by:
           </p>

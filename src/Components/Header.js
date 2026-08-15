@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import LanguageToggle from './LanguageToggle';
 
 class Header extends Component {
@@ -6,12 +7,7 @@ class Header extends Component {
     super(props);
     this.state = { menuOpen: false };
     this.toggleMenu = this.toggleMenu.bind(this);
-    this.handleHomeClick = this.handleHomeClick.bind(this);
-    this.handleIssuesClick = this.handleIssuesClick.bind(this);
-    this.handleEndorsementsClick = this.handleEndorsementsClick.bind(this);
-    this.handleDistrictClick = this.handleDistrictClick.bind(this);
-    this.handleAboutClick = this.handleAboutClick.bind(this);
-    this.handleGetInvolvedClick = this.handleGetInvolvedClick.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
   }
 
   toggleMenu() {
@@ -22,50 +18,9 @@ class Header extends Component {
     this.setState({ menuOpen: false });
   }
 
-  handleHomeClick(e) {
-    e.preventDefault();
-    this.props.onNavigate('home');
-    this.closeMenu();
-  }
-
-  handleIssuesClick(e) {
-    e.preventDefault();
-    this.props.onNavigate('issues');
-    this.closeMenu();
-  }
-
-  handleEndorsementsClick(e) {
-    e.preventDefault();
-    this.props.onNavigate('endorsements');
-    this.closeMenu();
-  }
-
-  handleDistrictClick(e) {
-    e.preventDefault();
-    this.props.onNavigate('district');
-    this.closeMenu();
-  }
-
-  handleAboutClick(e) {
-    e.preventDefault();
-    this.props.onNavigate('about');
-    this.closeMenu();
-  }
-
-  handleGetInvolvedClick(e) {
-    e.preventDefault();
-    this.props.onNavigate('getInvolved');
-    this.closeMenu();
-  }
-
   render() {
-    const homeClass = this.props.currentPage === 'home' ? 'active' : '';
-    const issuesClass = this.props.currentPage === 'issues' ? 'active' : '';
-    const endorsementsClass = this.props.currentPage === 'endorsements' ? 'active' : '';
-    const districtClass = this.props.currentPage === 'district' ? 'active' : '';
-    const aboutClass = this.props.currentPage === 'about' ? 'active' : '';
-    const getInvolvedClass = this.props.currentPage === 'getInvolved' ? 'active' : '';
     const navOpenClass = this.state.menuOpen ? 'nav-open' : '';
+    const navLinkClass = ({ isActive }) => (isActive ? 'active' : '');
 
     return (
       <header className="site-header">
@@ -92,12 +47,12 @@ class Header extends Component {
 
           <nav className={navOpenClass}>
             <ul>
-              <li><a href="#home" className={homeClass} onClick={this.handleHomeClick}>Home</a></li>
-              <li><a href="#issues" className={issuesClass} onClick={this.handleIssuesClick}>Issues</a></li>
-              <li><a href="#endorsements" className={endorsementsClass} onClick={this.handleEndorsementsClick}>Endorsements</a></li>
-              <li><a href="#district" className={districtClass} onClick={this.handleDistrictClick}>District</a></li>
-              <li><a href="#about" className={aboutClass} onClick={this.handleAboutClick}>About</a></li>
-              <li><a href="#getinvolved" className={getInvolvedClass} onClick={this.handleGetInvolvedClick}>Get Involved</a></li>
+              <li><NavLink to="/" end className={navLinkClass} onClick={this.closeMenu}>Home</NavLink></li>
+              <li><NavLink to="/issues" className={navLinkClass} onClick={this.closeMenu}>Issues</NavLink></li>
+              <li><NavLink to="/endorsements" className={navLinkClass} onClick={this.closeMenu}>Endorsements</NavLink></li>
+              <li><NavLink to="/district" className={navLinkClass} onClick={this.closeMenu}>District</NavLink></li>
+              <li><NavLink to="/about" className={navLinkClass} onClick={this.closeMenu}>About</NavLink></li>
+              <li><NavLink to="/get-involved" className={navLinkClass} onClick={this.closeMenu}>Get Involved</NavLink></li>
               <li><LanguageToggle /></li>
               <li><a href="https://secure.anedot.com/stevesmith2026/donate" target="_blank" rel="noopener noreferrer" className="btn-donate">Donate</a></li>
             </ul>

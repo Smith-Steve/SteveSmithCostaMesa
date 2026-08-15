@@ -101,7 +101,7 @@ class GetInvolved extends Component {
         <div className="get-involved-container">
           <div className="get-involved-header">
             <div className="get-involved-eyebrow">&mdash; Join the Campaign</div>
-            <h2>Get Involved</h2>
+            <h1>Get Involved</h1>
             <p className="get-involved-sub">
               Tell us how you'd like to help, and we'll follow up.
             </p>
