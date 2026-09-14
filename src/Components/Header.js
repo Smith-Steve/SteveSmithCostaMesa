@@ -49,7 +49,6 @@ class Header extends Component {
             <ul>
               <li><NavLink to="/" end className={navLinkClass} onClick={this.closeMenu}>Home</NavLink></li>
               <li><NavLink to="/issues" className={navLinkClass} onClick={this.closeMenu}>Issues</NavLink></li>
-              <li><NavLink to="/endorsements" className={navLinkClass} onClick={this.closeMenu}>Endorsements</NavLink></li>
               <li><NavLink to="/district" className={navLinkClass} onClick={this.closeMenu}>District</NavLink></li>
               <li><NavLink to="/about" className={navLinkClass} onClick={this.closeMenu}>About</NavLink></li>
               <li><NavLink to="/get-involved" className={navLinkClass} onClick={this.closeMenu}>Get Involved</NavLink></li>

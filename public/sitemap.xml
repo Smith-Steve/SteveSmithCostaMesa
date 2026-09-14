@@ -11,11 +11,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.smithforcostamesa.com/endorsements</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.smithforcostamesa.com/district</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

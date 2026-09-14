@@ -8,7 +8,9 @@ Amplify Params - DO NOT EDIT */
 
 const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
 const { DynamoDBDocumentClient, PutCommand } = require('@aws-sdk/lib-dynamodb');
+const { SNSClient, PublishCommand } = require('@aws-sdk/client-sns');
 const dynamodb = DynamoDBDocumentClient.from(new DynamoDBClient({}));
+const sns = new SNSClient({});
 
 exports.handler = async (event) => {
     console.log(`EVENT: ${JSON.stringify(event)}`);
@@ -42,6 +44,30 @@ exports.handler = async (event) => {
             TableName: process.env.STORAGE_VOLUNTEERFORMSUBMISSIONS_NAME,
             Item: item
         }));
+
+        if (process.env.NOTIFICATION_TOPIC_ARN) {
+            const interestsList = Object.entries(body.interests || {})
+                .filter(([, checked]) => checked)
+                .map(([interest]) => interest)
+                .join(', ') || 'None selected';
+
+            try {
+                await sns.send(new PublishCommand({
+                    TopicArn: process.env.NOTIFICATION_TOPIC_ARN,
+                    Subject: `New volunteer form submission from ${item.firstName} ${item.lastName}`,
+                    Message: [
+                        `Name: ${item.firstName} ${item.lastName}`,
+                        `Email: ${item.email}`,
+                        `Phone: ${item.phone}`,
+                        `Interests: ${interestsList}`,
+                        `Comments: ${item.comments}`,
+                        `Submitted: ${item.submittedAt}`
+                    ].join('\n')
+                }));
+            } catch (notifyErr) {
+                console.error('Error publishing notification:', notifyErr);
+            }
+        }
 
         return {
             statusCode: 200,

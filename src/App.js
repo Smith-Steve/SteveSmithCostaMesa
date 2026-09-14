@@ -1,18 +1,19 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import './Css/App.css';
 import StatusBar from './Components/StatusBar';
 import Header from './Components/Header';
 import Hero from './Components/Hero';
 import MeetSteve from './Components/MeetSteve';
 import Issues from './Components/Issues';
-import Endorsements from './Components/Endorsements';
+// Endorsements page temporarily unlinked; import Endorsements from './Components/Endorsements';
 import District from './Components/District';
 import IntroVideo from './Components/IntroVideo';
 import About from './Components/About';
 import GetInvolved from './Components/GetInvolved';
 import Footer from './Components/Footer';
 import Seo from './Components/Seo';
+import { initGA, trackPageview } from './analytics';
 
 function Home() {
   return (
@@ -30,6 +31,16 @@ function Home() {
 }
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    initGA();
+  }, []);
+
+  useEffect(() => {
+    trackPageview(location.pathname + location.search);
+  }, [location]);
+
   return (
     <div className="app">
       <StatusBar />
@@ -49,6 +60,7 @@ function App() {
             </React.Fragment>
           }
         />
+        {/* Endorsements route temporarily removed to unlink the page without deleting it
         <Route
           path="/endorsements"
           element={
@@ -62,6 +74,7 @@ function App() {
             </React.Fragment>
           }
         />
+        */}
         <Route
           path="/district"
           element={

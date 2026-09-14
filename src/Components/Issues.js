@@ -19,12 +19,11 @@ class Issues extends Component {
               <div className="issue-content">
                 <h3>Fairview Park</h3>
                 <p>
-                  Opposing the ecology-first master plan that would lock
-                  residents out of the park they've always used. Fairview
+                  Oppose any update to the fairview park master plan that assumes people who use Fairview Park are what is wrong with it. Fairview
                   belongs to Costa Mesa families &mdash; that means
-                  protecting continued access for RC glider flying and the
+                  protecting continued access for RC glider flying, continuing with events like concerts in the park (and not moving/cancelling them!) and the
                   recreational uses that have defined the park for
-                  generations, not managing people out.
+                  generations, not managing people out. Parks are for you!
                 </p>
               </div>
             </div>

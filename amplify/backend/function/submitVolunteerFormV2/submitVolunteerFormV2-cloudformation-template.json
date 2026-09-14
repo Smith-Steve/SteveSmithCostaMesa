@@ -27,6 +27,16 @@
     "storageVolunteerFormSubmissionStreamArn": {
       "Type": "String",
       "Default": "storageVolunteerFormSubmissionStreamArn"
+    },
+    "notificationEmail": {
+      "Type": "String",
+      "Default": "steve@steve4costamesa.com",
+      "Description": "Email address to notify on new volunteer form submissions"
+    },
+    "notificationEmail2": {
+      "Type": "String",
+      "Default": "ejdutra33@gmail.com",
+      "Description": "Second email address to notify on new volunteer form submissions"
     }
   },
   "Conditions": {
@@ -90,6 +100,9 @@
             },
             "STORAGE_VOLUNTEERFORMSUBMISSIONS_STREAMARN": {
               "Ref": "storageVolunteerFormSubmissionStreamArn"
+            },
+            "NOTIFICATION_TOPIC_ARN": {
+              "Ref": "SubmissionNotificationTopic"
             }
           }
         },
@@ -186,6 +199,82 @@
         }
       }
     },
+    "SubmissionNotificationTopic": {
+      "Type": "AWS::SNS::Topic",
+      "Properties": {
+        "TopicName": {
+          "Fn::If": [
+            "ShouldNotCreateEnvResources",
+            "volunteerFormSubmissionNotifications",
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "volunteerFormSubmissionNotifications",
+                  "-",
+                  {
+                    "Ref": "env"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "SubmissionNotificationSubscription": {
+      "Type": "AWS::SNS::Subscription",
+      "Properties": {
+        "TopicArn": {
+          "Ref": "SubmissionNotificationTopic"
+        },
+        "Protocol": "email",
+        "Endpoint": {
+          "Ref": "notificationEmail"
+        }
+      }
+    },
+    "SubmissionNotificationSubscription2": {
+      "Type": "AWS::SNS::Subscription",
+      "Properties": {
+        "TopicArn": {
+          "Ref": "SubmissionNotificationTopic"
+        },
+        "Protocol": "email",
+        "Endpoint": {
+          "Ref": "notificationEmail2"
+        }
+      }
+    },
+    "SnsPublishPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole",
+        "SubmissionNotificationTopic"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "sns-publish-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "sns:Publish"
+              ],
+              "Resource": {
+                "Ref": "SubmissionNotificationTopic"
+              }
+            }
+          ]
+        }
+      }
+    },
     "AmplifyResourcesPolicy": {
       "DependsOn": [
         "LambdaExecutionRole"
@@ -268,6 +357,11 @@
           "LambdaExecutionRole",
           "Arn"
         ]
+      }
+    },
+    "NotificationTopicArn": {
+      "Value": {
+        "Ref": "SubmissionNotificationTopic"
       }
     }
   }
