@@ -20,7 +20,7 @@ class Hero extends Component {
                 Our city has lost its way and Steve wants to steer our city towards focusing on the
                 basics: Public safety, responsible stewardship of our resources, and a hyper-focus on
                 energetically building up the greatest city in the world so we
-                can prosper as a community.
+                can prosper as a community
               </p>
             </div>
             <div className="hero-panel">
