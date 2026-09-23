@@ -65,7 +65,7 @@ class Issues extends Component {
               <div className="issue-content">
                 <h3>Pro-Business Growth</h3>
                 <p>
-                  A robust business community in Costa Mesa helps everyone thrive. The more successful businesses we have, the more our city can succeeed. A great idea shouldn't be drowned in red tape. Expediting the business and building permitting process so investment in Costa Mesa doesn't stall.
+                  A robust business community in Costa Mesa helps everyone thrive. The more successful businesses we have, the more our city can succeed. A great idea shouldn't be drowned in red tape &mdash; that means expediting the business and building permitting process so people investing in Costa Mesa can move forward instead of waiting on City Hall.
                 </p>
                 <div className="issue-stat">
                   <span className="stat-figure">5%</span>
